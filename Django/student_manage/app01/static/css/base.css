@@ -1,0 +1,17 @@
+.container-fluid{
+    position: relative;
+    top: 0;
+    left: 100px;
+}
+.float-right{
+    position: absolute;
+    top: 0;
+    right: 240px;
+
+}
+*{
+    color: #454545;
+}
+.nav-link active{
+    color: #454545;
+}

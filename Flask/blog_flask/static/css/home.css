@@ -1,0 +1,106 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+:root{
+    --card-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.06);
+    --card-hover-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.15);
+
+}
+html{
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+/*.header-fiexd{*/
+/*        !*固定定位*!*/
+/*    position: fixed;*/
+/*}*/
+body{
+    background-color: #fff;
+}
+.ul-nav li{
+    list-style: none;
+    height: 60px;
+    float: left;
+    text-align: center;
+    margin: 0 20px;
+}
+
+
+.ul-nav{
+    margin-left: 280px;
+}
+
+.nav{
+    width: 100%;
+    height: 60px;
+    /*background:linear-gradient(rgba(243,245,247),rgba(169,212,232,0.6),rgba(115,205,254,0.8));*/
+    background: linear-gradient(217deg, rgb(222 242 255), rgb(65 103 141) 70.71%);
+
+}
+/*导航栏透明*/
+header .nav-transparent {
+    background-color: transparent !important;
+    background-image: none;
+    box-shadow: none;
+}
+.nav-a{
+    display: inline-block;
+    float:left ;
+    margin-left: 450px;
+
+}
+.nav-a a{
+    display: inline-block;
+    height: 60px;
+    text-align: center;
+    border-radius: 15px;
+    line-height: 60px;
+    font-size: 30px;
+    padding: 0 10px;
+    font-weight: bolder;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    position: relative;
+    margin: auto;
+    text-decoration: none;
+}
+.nav-a a:hover{
+    color: #000000;
+    font-size: 35px;
+}
+
+
+
+/*导航栏博客logo*/
+/*       background-attachment: fixed;当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+
+
+
+
+/*overflow:hidden;在父级添加，清除浮动*/
+
+/*清除浮动*/
+/*.clearfix::after{*/
+/*    content: '';*/
+/*    display: block;*/
+/*    clear:both;*/
+/*}*/
+
+/*页脚*/
+.body-footer{
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(217deg, rgb(181 200 219), rgb(65 103 141) 70.71%)
+}
+.box-footer{
+    width: 250px;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 50px;
+    word-break: normal;
+}
+.box-footer p{
+    text-align: center;
+}

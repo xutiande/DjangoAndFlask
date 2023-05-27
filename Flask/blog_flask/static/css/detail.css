@@ -1,0 +1,13 @@
+li{
+    list-style: none;
+}
+.username{
+    font-size: 20px;
+}
+.question-info{
+    float: right;
+    font-size: 15px;
+}
+.comment-group-title{
+    margin-top: 50px;
+}

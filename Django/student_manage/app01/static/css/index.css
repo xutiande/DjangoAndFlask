@@ -1,0 +1,23 @@
+.d-block {
+    width: 800px;
+    text-align: left;
+    border-radius: 35px
+}
+
+.slide {
+    width: 800px;
+    text-align: left;
+    margin: 50px;
+    margin-left: 160px;
+}
+
+.index-text {
+    width: 800px;
+}
+
+.index-text-h1 {
+    text-align: center;
+    line-height: 461px;
+    font-size: 60px;
+    font-weight: bold;
+}

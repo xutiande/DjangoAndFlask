@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    /* 基本样式 */
+    .navbar {
+      background: linear-gradient(to bottom, #4a90e2, #1e62d0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar a {
+      float: left;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* 激活状态样式 */
+    .active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a class="active" href="#">首页</a>
+    <a href="#">用户管理</a>
+    <a href="#">数据分析</a>
+    <a href="#">报表生成</a>
+    <a href="#">设置</a>
+  </div>
+</body>
+</html>

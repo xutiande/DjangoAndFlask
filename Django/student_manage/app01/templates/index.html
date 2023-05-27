@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}首页{% endblock %}</title>
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% endblock %}
+</head>
+<body>
+{% block div %}
+    <div class="content" style="display:flex;">
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <!-- 指示符 -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- 轮播图片 -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img decoding="async" src="{% static 'image/swiper1.jpg' %}" class="d-block"
+                    >
+                </div>
+                <div class="carousel-item">
+                    <img decoding="async" src="{% static 'image/swiper2.jpg' %}" class="d-block"
+                    >
+                </div>
+                <div class="carousel-item">
+                    <img decoding="async" src="{% static 'image/swiper3.jpg' %}" class="d-block"
+                         style="">
+                </div>
+            </div>
+
+            <!-- 左右切换按钮 -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" style="margin-left: 74px;"> </span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon" style="margin-right: 74px;"></span>
+            </button>
+        </div>
+        <div class="index-text">
+            <h1 class="index-text-h1">首页</h1>
+        </div>
+    </div>
+
+{% endblock %}
+</body>
+</html>

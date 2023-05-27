@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}我的信息{% endblock %}
+
+{% block head %}    <link rel="stylesheet" href="{{ url_for('static', filename='css/fixed.css') }}">{% endblock %}
+
+
+{% block body %}
+    <img src="{{url_for('static', filename='image/徐天德-1.jpg') }}" alt="" style="width: 100%;height: 100%">
+
+{% endblock %}

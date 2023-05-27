@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}爬虫{% endblock %}</title>
+</head>
+<body>
+{% block div %}
+    <link rel="stylesheet" href="{% static 'css/teacher_list.css' %}">
+    <div class="bd-example">
+        <div class="container" style="text-align: center;">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a type="button" class="btn btn-primary" href="/spider/download/">下载页面</a>
+                <a type="button" class="btn btn-primary" href="/spider/data/analyse/">数据分析</a>
+                <a type="button" class="btn btn-primary" href="/spider/data/chart/">数据可视化</a>
+            </div>
+            <div style="margin-top: 15px"> {{ message }}</div>
+            <div style="margin-top: 15px"> {{ message }}</div>
+
+            <div style="margin-top: 15px;">
+                <div style="text-align: left;padding-left: 506px">
+                    {% for index, value in percentage.iteritems %}
+                        <li style="list-style: none">
+                            成绩为: <b>{{ index }}</b> 所占的百分比: <b>{{ value }}%</b>
+                        </li>
+                    {% endfor %}
+                </div>
+            </div>
+            {% if image_base64 %}
+                <img src="data:image/png;base64,{{ image_base64 }}" alt="Pie Chart">
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}分类{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/class.css') }}">
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col"></div>
+
+        <div class="col-10">
+
+            <ul class="question-ul">
+                <div class="search">
+                    <form class="form-inline my-2 my-lg-0" method="GET" action="{{ url_for("qa.search") }}">
+                        <input class="form-control mr-sm-2" type="search" placeholder="关键字" aria-label="Search"
+                               name="q">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                    </form>
+                </div>
+                {% for questions in question %}
+                    <div class="content">
+                        <li>
+
+                            <div class="side-question">
+                                <a href="{{ url_for("qa.qa_detail",qa_id=questions.id) }}"><img
+                                        class="side-question-avatar"
+                                        src="{{ url_for("static",filename='image/1.jpg') }}" alt=""> </a>
+                            </div>
+                            <div class="question-main" >
+                                {#                            a标签带参数qa_id跳转到详情页#}
+                                <div class="question-title"><a
+                                        href="{{ url_for("qa.qa_detail",qa_id=questions.id) }}">{{ questions.title }}</a>
+                                </div>
+                                <div class="btn-group" style="float: right;position: absolute;top: 15px;right: 0">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle"
+                                            data-bs-toggle="dropdown" aria-expanded="false" _msttexthash="4682028"
+                                            _msthash="230" style="background: white;
+    border: 0;
+    color: #000000;margin-right: 3px">设置
+                                    </button>
+                                    <ul class="dropdown-menu" _msthidden="4">
+                                        <li _msthidden="1"><a class="dropdown-item" href="{{ url_for("qa.class_edit",qa_id=questions.id) }}" _msttexthash="76466"
+                                                              _msthidden="1" _msthash="231">编辑</a></li>
+                                        <li _msthidden="1"><a class="dropdown-item" href="{{ url_for("qa.class_delete",qa_id=questions.id )}}" _msttexthash="232752"
+                                                              _msthidden="1" _msthash="232">删除</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="question-content"><p>{{ questions.content }}</p></div>
+
+                                <div class="question-detail">
+                                    <span class="question-author">作者:{{ questions.author.username }}</span>
+                                    <span class="question-time">{{ questions.create_time }}</span>
+                                </div>
+                            </div>
+
+                        </li>
+
+                    </div>
+
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col"></div>
+    </div>
+
+{% endblock %}

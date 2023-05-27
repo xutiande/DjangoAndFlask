@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}教师列表{% endblock %}</title>
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/student_list.css' %}">{% endblock %}
+</head>
+<body>
+{% block div %}
+    <link rel="stylesheet" href="{% static 'css/teacher_list.css' %}">
+    <div class="bd-example">
+    <div class="container" style="text-align: center;">
+        <div style="margin-bottom: 5px;padding-bottom: 44px;">
+            <div class="left-a">
+                <a href="/student/add/" class="btn btn-info "
+                   style="float: left;    margin-left: 22px;margin-bottom: 10px;padding:3px 20px ">添加学生</a></div>
+
+            <div class="container-fluid" style="width: 300px;float: right">
+                <form class="d-flex" role="search" method="get">
+                    <input class="form-control me-2" name="search" type="search" placeholder="搜索姓名"
+                           value="{{ search_data }}" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" style="">搜</button>
+                </form>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">学号</th>
+                <th scope="col">班级</th>
+                <th scope="col">姓名</th>
+                <th scope="col">年龄</th>
+                <th scope="col">性别</th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false"
+                           style="background-color: #ffffff;color: #212529;font-size: 16px;padding: 0;border: 0;font-weight: bold">
+                            分数
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li class="down-li"><a href="/student/sort/jiang/" type=""
+                                                   class="btn btn-secondary"
+                                                   style="width: 76px">降序</a>
+                            </li>
+                            <li class="down-li"><a href="/student/sort/sheng/" type=""
+                                                   class="btn btn-secondary "
+                                                   style="width: 76px">升序</a>
+                            </li>
+                            <li class="down-li"><a href="/student/list/" type=""
+                                                   class="btn btn-secondary "
+                                                   style="width: 76px">默认</a>
+                            </li>
+                        </ul>
+                    </div>
+                </th>
+                <th scope="col">老师</th>
+                <th scope="col">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for field in data %}
+                <tr>
+
+                    <th scope="row">{{ field.id }}</th>
+                    <td>{{ field.student_id }}</td>
+                    <td>{{ field.student_class }}</td>
+                    <td>{{ field.name }}</td>
+                    <td>{{ field.age }}</td>
+                    <td>{{ field.get_gender_display }}</td>
+                    <td>{{ field.score }}</td>
+                    <td>{{ field.teacher.name }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                更多
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="down-li"><a href="/student/{{ field.id }}/edit/" type=""
+                                                       class="btn btn-primary"
+                                                       style="width: 76px">编辑</a>
+                                </li>
+                                <li class="down-li"><a href="/student/{{ field.id }}/delete/" type=""
+                                                       class="btn btn-danger"
+                                                       style="width: 76px">删除</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div style="text-align: center;">
+            <nav aria-label="Page navigation example" style="display: inline-block">
+                <ul class="pagination" style="">
+                    {{ page_string }}
+                    <form class="d-flex" method="post">
+                        {% csrf_token %}
+                        <input class="form-control me-2" type="search" name='go_page'
+                               style="width:80px;margin-left: 10px">
+                        <button class="btn btn-outline-success" type="submit">Go</button>
+                    </form>
+                    <span style="font-size: 12px;padding: 18px 0 0 15px">共  <b> {{ total_page_count }}</b> 条数据</span>
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

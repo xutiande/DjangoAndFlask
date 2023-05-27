@@ -1,0 +1,14 @@
+.contents{
+
+    width:721px;
+    margin: 0 auto;
+}
+li{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    list-style: none;
+    Letter-spacing:1px;
+}
+.contents p{
+    display: inline-block;
+    margin: 0;
+}
